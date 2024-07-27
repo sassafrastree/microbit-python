@@ -1,3 +1,92 @@
+# Buttons
+buttons are digital/binary inputs meaning it will return either `0` or `1`
+> `0` is off
+`1` is on
+
+```python
+from microbit import *
+
+pin0.read_digital()
+```
+# Lights
+lights are usually digital/binary outputs meaning they can be set to either `0` or `1`
+
+> `0` is off
+`1` is on
+
+```python
+from microbit import *
+
+pin0.write_digital(1)
+```
+# Servo Motors
+## write_analog()
+> PIN.write_analog(50) => Right
+PIN.write_analog(100) => Left
+PIN.write_analog(75) => Stop
+
+Example: `pin0.write_analog(75)`
+
+```python
+from microbit import *
+pin0.set_analog_period(20)
+
+pin0.write_analog(75)
+```
+# NeoPixels (LED Strip)
+##### Useful Links
+1. https://www.w3schools.com/colors/colors_rgb.asp
+
+**Setup:** To set up your NeoPixel strip you will need to declare it as a variable. You will set this variable to NeoPixel() with its parameters being: the pin and the number of leds
+
+Example: `np = NeoPixel(pin0, 8)`
+
+**Single LEDS:** Now that you have declared your NeoPixel strip it is now a list with its values being RGB codes.
+
+Example: `np[0] = (63, 63, 0)`
+
+**All LEDS:** to set the color of all your LEDs at once you can use VARIABLE.fill((R,G,B))
+
+Example: `np.fill((0, 63, 63))`
+
+**Clear/Show:** now that you have set up what you want your NeoPixel strip to do you need to tell it to show or clear with VARIABLE.show() and VARIABLE.clear()
+
+Example: `np.show()`
+Example: `np.clear()`
+
+```python
+from microbit import *
+from neopixel import *
+
+np = NeoPixel(pin0, 8)
+np.fill((0, 63, 63))
+np.show()
+```
+
+# Joystick
+> Note: The joystick module isn't necessary however it simplifies the process. The joystick detects from -420 to 420 for both x and y 
+
+
+**Setup:** To set up your Joystick you will need to declare it as a variable. You will set this variable to Joystick() with its parameters being the pins connected to: VRX, VRY, and SW  
+
+Example: `js = Joystick(pin0, pin1, pin2)`
+
+**X & Y:** these are both analog values that range from -420 to 420 with 0 being the center
+Example: `js.x`
+Example: `js.y`
+
+**SW:** this is a digital value that detects when the joystick is being clicked (like a button)
+Example: `js.sw`
+```python
+if js.x == 0 and js.y == 0:
+    # center
+if js.x > 400 and js.y > 400:
+    # top right
+if js.x < -400 and js.y < -400:
+    # bottom left
+if js.sw == 1:
+    # button pressed
+```
 # OLED
 ## Stamps
 > Note: Stamps should be used over bitmaps as they draw on small sections of the screen instead of the full screen
@@ -63,65 +152,3 @@ with open('blank_file_name', 'wb') as newFile:
 ```
 
 Example: `show_bitmap("blank_file_name")`
-# Servo Motors
-
-## write_analog()
-> PIN.write_analog(50) => Right
-PIN.write_analog(100) => Left
-PIN.write_analog(75) => Stop
-
-Example: `pin0.write_analog(75)`
-
-```python
-from microbit import *
-pin0.set_analog_period(20)
-
-pin0.write_analog(75)
-```
-# NeoPixels (LED Strip)
-##### Useful Links
-1. https://www.w3schools.com/colors/colors_rgb.asp
-
-**Setup:** To set up your NeoPixel strip you will need to declare a variable for your NeoPixel strip. You will set this variable to NeoPixel() with its parameters being: the pin and the number of leds
-
-Example: `np = NeoPixel(pin0, 8)`
-
-**Single LEDS:** Now that you have declared your NeoPixel strip it is now a list with its values being RGB codes.
-
-Example: `np[0] = (63, 63, 0)`
-
-**All LEDS:** to set the color of all your LEDs at once you can use VARIABLE.fill((R,G,B))
-
-Example: `np.fill((0, 63, 63))`
-
-**Clear/Show:** now that you have set up what you want your NeoPixel strip to do you need to tell it to show or clear with VARIABLE.show() and VARIABLE.clear()
-
-Example: `np.show()`
-Example: `np.clear()`
-
-```python
-from microbit import *
-from neopixel import *
-
-np = NeoPixel(pin0, 8)
-np.fill((0, 63, 63))
-np.show()
-```
-
-# Joystick
-The joystick module isn't necessary however it simplified the process. 
-```python
-import joystick 
-from microbit import *
-
-js = joystick.Joystick(pin0, pin1, pin2)
-
-if js.x == 0 and js.y == 0:
-    # center
-if js.x > 400 and js.y > 400:
-     # top right
-if js.x < -400 and js.y < -400:
-    # bottom left
-if js.button:
-    # button pressed
-```
