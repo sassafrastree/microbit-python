@@ -1,6 +1,6 @@
 # Buttons
 buttons are digital/binary inputs meaning it will return either `0` or `1`
-> `0` is off
+> `0` is off,
 `1` is on
 
 ```python
@@ -11,7 +11,7 @@ pin0.read_digital()
 # Lights
 lights are usually digital/binary outputs meaning they can be set to either `0` or `1`
 
-> `0` is off
+> `0` is off, 
 `1` is on
 
 ```python
@@ -34,7 +34,7 @@ pin0.set_analog_period(20)
 pin0.write_analog(75)
 ```
 # NeoPixels (LED Strip)
-##### Useful Links
+### Useful Links
 1. https://www.w3schools.com/colors/colors_rgb.asp
 
 **Setup:** To set up your NeoPixel strip you will need to declare it as a variable. You will set this variable to NeoPixel() with its parameters being: the pin and the number of leds
@@ -52,6 +52,7 @@ Example: `np.fill((0, 63, 63))`
 **Clear/Show:** now that you have set up what you want your NeoPixel strip to do you need to tell it to show or clear with VARIABLE.show() and VARIABLE.clear()
 
 Example: `np.show()`
+
 Example: `np.clear()`
 
 ```python
@@ -72,11 +73,15 @@ np.show()
 Example: `js = Joystick(pin0, pin1, pin2)`
 
 **X & Y:** these are both analog values that range from -420 to 420 with 0 being the center
+
 Example: `js.x`
+
 Example: `js.y`
 
 **SW:** this is a digital value that detects when the joystick is being clicked (like a button)
+
 Example: `js.sw`
+
 ```python
 if js.x == 0 and js.y == 0:
     # center
@@ -91,7 +96,7 @@ if js.sw == 1:
 ## Stamps
 > Note: Stamps should be used over bitmaps as they draw on small sections of the screen instead of the full screen
 
-##### Useful Links
+### Useful Links
 1. https://tools.withcode.uk/binaryimage/
 2. https://www.dcode.fr/binary-image
 
@@ -123,7 +128,7 @@ draw_stamp(20, 0, stamp, 1)
 ## Bitmaps
 > Note: you basically can not map out the image on your own as the bitmap is stored in a hexadecimal as there are 8192 pixels on the OLED screen 
 
-##### Useful Links
+### Useful Links
 1. https://javl.github.io/image2cpp/
 2. https://vscode.dev/
 
