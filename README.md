@@ -5,15 +5,15 @@ from microbit import *
 
 pin0.read_digital()
 ```
-# Lights
-Lights can be either digital or analog outputs. Analog output would be used if you want to lower the brightness of the LED. Whereas digital output is used if you just want to turn it on or off. 
+# LEDs, Buzzers, and Lasers
+LEDs, buzzers, and lasers can be either digital or analog outputs. Analog output would be used if you want to change the intensity. Whereas digital output would be used if you only want to turn it on or off. 
 
 ```python
 from microbit import *
 
-# fully on
+#fully on
 pin0.write_digital(1)
-pin1.write_analog(255)
+pin1.write_analog(1023)
 
 # fully off
 pin0.write_digital(0)
@@ -62,7 +62,6 @@ np = NeoPixel(pin0, 8)
 np.fill((0, 63, 63))
 np.show()
 ```
-
 # Joystick
 > [!NOTE]  
 > The joystick module isn't necessary however it simplifies the process. The joystick detects from -420 to 420 for both x and y 
@@ -105,7 +104,7 @@ if js.sw == 1:
 
 **custom stamps:** There can be anywhere between 5 and 8 rows of five 0’s (off) or 1’s (on). There must be at least 5 pixels in a row and at least 5 rows. Each row string must end with a colon. 
 
-Example:  `create_stamp(Image('01010:' 11111:' 11111:' 01110:' 00100:'))` 
+Example:  `create_stamp(Image('01010': '11111:' '11111:' '01110:' '00100:'))` 
 
 to create larger images use more than one stamp
 
@@ -122,7 +121,7 @@ from ssd1306_stamp import draw_stamp
 from ssd1306_img import create_stamp
 from microbit import *
 
-create_stamp(Image('01010:' 11111:' 11111:' 01110:' 00100:'))
+create_stamp(Image('01010:' '11111:' '11111:' '01110:' '00100:'))
 draw_stamp(20, 0, stamp, 1)
 ```
 ## Bitmaps
