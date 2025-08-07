@@ -165,8 +165,7 @@ show_bitmap("blank_file_name")
 ```python
 from hcsr04 import HCSR04
 
-sonar=HCSR04()
 while True:
-    print(round(sonar.distance_mm()/10))
-    sleep(1000)
+    if button_a.was_pressed():
+        print(sonar.read())
 ```
