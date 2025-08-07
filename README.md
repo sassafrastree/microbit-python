@@ -162,4 +162,11 @@ show_bitmap("blank_file_name")
 ```
 
 # Ultrasonic Range Sensor
-Notes in progress
+```python
+from hcsr04 import HCSR04
+
+sonar=HCSR04()
+while True:
+    print(round(sonar.distance_mm()/10))
+    sleep(1000)
+```
