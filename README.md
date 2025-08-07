@@ -164,7 +164,7 @@ show_bitmap("blank_file_name")
 # Ultrasonic Range Sensor
 ```python
 from hcsr04 import HCSR04
-
+sonar = HCSR04(pin0, pin1)
 while True:
     if button_a.was_pressed():
         print(sonar.read())
